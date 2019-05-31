@@ -14,7 +14,7 @@ Using a local nuget feed can be useful in this scenario.
 ```xml
 <configuration>
   <packageSources>
-    <add key="local" value="C:\nuget\packages\">
+    <add key="local" value="C:\nuget\packages\" />
   </packageSources>
 </configuration>
 ```
