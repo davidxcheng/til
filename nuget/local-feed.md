@@ -40,3 +40,8 @@ dotnet pack -o packed/ -c Release
 ```
 dotnet nuget push *.nupkg --source local
 ```
+
+#### Debugging your missing package :beetle:
+
+If Visual Studio or the `dotnet` CLI can't find your newly published package when building/restoring, run `nuget locals all -list` to list all the places where nuget caches stuff locally. Then jump into the folders and delete all versions of the package you just published.
+
