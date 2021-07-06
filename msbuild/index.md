@@ -22,6 +22,14 @@ Example:
 dotnet msbuild Test.csproj -pp:Everything.xml
 ```
 
+## How to print the value of a variable
+
+```xml
+<Target Name="EchoPubDir" BeforeTargets="PreBuildEvent">
+  <Exec Command="echo $(PublishDir)" />
+</Target>
+```
+
 ## Beware of `Directory.Build.targets`
 
 Today I got tripped up a bit by a `Directory.Build.targets` in the root of the repo I was working in. I had added a `.sqlproj` project in a subfolder and that SQL project was the only project in a `.sln` file. SQL projects have not been migrated to dotnet core and can therefore not be built with the `dotnet` CLI. Actually there is no compiling by `csc.exe` at all since it's just bunch of sql files that (seemingly) gets transpiled and put into a `dacpac` file. Visual Studio 2019 has no problem building the `.sqlproj` and create the dacpac. I guess it passes the `.sln` directly to MSBuild and I happen to have whatever build targets are needed on my machine.
