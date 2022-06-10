@@ -1,6 +1,6 @@
 # Bookmarklets
 
-Toggle strike through on `click`. Markdown does not support links with javascript so to "install" it you'll have to add a bookmark, joint the code below into one line and paste into the bookmark.
+Toggle strike through on `click`. Markdown does not support links with javascript so to "install" it you'll have to add a bookmark, join the code below into one line and paste into the bookmark.
 
 ```js
 javascript: (() => {
