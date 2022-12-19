@@ -19,6 +19,8 @@ Using a local nuget feed can be useful in this scenario.
 </configuration>
 ```
 
+If you have the `nuget` CLI you can verify with `nuget sources` which lists all the feeds.
+
 ## Pack & publish to your local feed
 
 This is how to `pack` and `push` using the `dotnet` CLI.
