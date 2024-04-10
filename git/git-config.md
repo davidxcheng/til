@@ -14,9 +14,16 @@ This feels a bit like flying blind to me and I prefer to make edits using a text
 git config --global --edit
 ```
 
+### How to find the source of each git config setting
+
+There are (at least) 3 levels of git config: `local`, `global` and `system` and git looks for config values in that order. This means that configuration of git can vary depending on the working directory and you can get gits view of the config with the `--list` option. Adding `--show-origin` displays the name of the file where the config line is stored and `--show-scope` shows which level it's on (`local`, `global` or `system`).
+
+```
+git config --list --show-origin --show-scope
+```
+
 ## How to set user.email for all repos inside a directory
 
-There are 3 levels of git config: `local`, `global` and `system` and git looks for config values in that order.
 
 There is also a feature called [Conditional includes](https://git-scm.com/docs/git-config?ref=blog.gitbutler.com#_includes) which can be used to point to any random config file. Example:
 

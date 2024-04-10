@@ -8,7 +8,7 @@ I was looking at a script that passed a property named `BuildMetadata` into the 
 dotnet build $projectDirectoryPath /p:BuildMetadata=$buildMetadata
 ```
 
-`-p` is short for `--property` and this is how you pass values into `msbuild`. I wanted to know where that property was used and learned that you can get a file that has inlined all the build targets that will be used during the build.
+`/p` is short for `--property` and this is how you pass values into `msbuild`. I wanted to know where that property was used and learned that you can get a file that has inlined all the build targets that will be used during the build.
 
 Use the `--preprocess[:filepath]` (`-pp`) switch to:
 
@@ -40,7 +40,7 @@ Anyway the `Directory.Build.targets` file in the root directory had this line in
 <Sdk Name="Microsoft.Build.CentralPackageVersions" Version="2.0.1" />
 ```
 
-This threw off the build agent in Azure DevOps since the agent was running on Windows and only hade the old DotNet Framework installed and therefore it couldn't find the `CentralPackageVersion` that the `Sdk` tag referred to. The error message 
+This threw off the build agent in Azure DevOps since the agent was running on Windows and only hade the old DotNet Framework installed and therefore it couldn't find the `CentralPackageVersion` that the `Sdk` tag referred to. The error message
 
 ```plain
 ##[error]Directory.Build.targets(0,0): Error : D:\ICC-Build-Agent-2\_tool\dotnet\sdk\2.1.302\Sdks\Microsoft.Build.CentralPackageVersions\Sdk not found. Check that a recent enough .NET Core SDK is installed and/or increase the version specified in global.json.
