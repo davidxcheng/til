@@ -10,7 +10,7 @@ I tried logging in with `az devops login` which didn't help. Then I checked the 
 
 ## KeyChain
 
-After reading a lot of posts online I finally understood that the PAT (or whatever git uses for auth) was stored in a KeyChain (I'm on macOS). It took me a while to understand this because a while back, while I was on Windows, I had tracked down the PAT used for accessing a nuget feed to a file called `SessionTokenCache.dat` in the `AppData` folder. So I assumed that it would be stored in a file on macOS too. I checked the KeyChain and it contained an entry for the host of the remotes that I could still access.
+After reading a lot of posts online I finally understood that the PAT (or whatever git uses for auth) was stored in a KeyChain (I'm on macOS). It took me a while to understand this because a while back, while I was on Windows, I had tracked down the PAT used for accessing a nuget feed to a file called `SessionTokenCache.dat` in the `%UserProfile%/AppData/Local/MicrosoftCredentialProvider` directory. So I assumed that it would be stored in a file on macOS too. I checked the KeyChain and it contained an entry for the host of the remotes that I could still access.
 
 Now it was pretty clear that git somehow uses the entry in KeyChain to auth against DevOps. The problem was that the posts I was reading indicated that the way to get that magical entry in KeyChain was to pretty much do what I was doing, i.e. trying to push my code, and something called `git-credential-manager` would then display a UI where I signed into DevOps and stashed a PAT in the KeyChain so the magic could work another couple of months.
 
