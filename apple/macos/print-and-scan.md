@@ -23,3 +23,15 @@ While poking around I discovered that the printer hosts its own web page:
 3. Click "Show Printer Web Page..."
 
 <img width="571" alt="image" src="https://github.com/davidxcheng/til/assets/452261/3774b5ea-3f12-4789-aa35-c1553e1892b5">
+
+No web page was rendered but still..
+
+2026-07-03: The same problem as in May 2023 appeared again. I could print but opening the scanner UI once again resulted in:
+
+> Failed to open a connection to the device (-21345)
+
+Claude suggested this action which resolved the issue:
+
+> Check local network permission: System Settings → Privacy & Security → Local Network — make sure scanning apps are allowed (a Sequoia-era gotcha).
+
+At the bottom of the list was `Brother Scanner.app` and after flipping "Allow applications below to find and communicate with devices..." the scanner UI connected to the scanner. Not clear why that permission suddenly had to be enabled.
